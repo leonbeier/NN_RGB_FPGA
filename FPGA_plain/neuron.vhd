@@ -46,7 +46,7 @@ end process;
 
 sigmoid : entity work.sigmoid_IP 
     port map (clock   => clk,
-              address => sumAdress(15 downto 2),
+              address => sumAdress(15 downto 4),
               q       => afterActivation);
                   
     -- format conversion
