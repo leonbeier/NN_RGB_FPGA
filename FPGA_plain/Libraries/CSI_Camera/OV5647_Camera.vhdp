@@ -75,6 +75,8 @@ Component OV5647_Camera
         SDA             => HS_Dif_1,  --B0_P
         Enable          => HS_Dif_22, --A4_N
     }
+    
+    
 
     --Send initial data on startup
     Process Cam_Init

@@ -43,7 +43,7 @@ fprintf('Starting Script \n')
 
 %=============== Constants Definition =================
 
-epochs = 600;   %Number of epochs you want to train the network
+epochs = 200;   %Number of epochs you want to train the network
 alpha = 0.00003; %Learning rate for the training process
 
 width=1000; %Width of the picture you are working with
@@ -127,7 +127,7 @@ fprintf('Generate Network \n')
 %   - Two hidden layer, the first has five neurons and the second six neurons
 %   - The output layer has two neurons
 
-networkStructure = [3 3 2];
+networkStructure = [3 7 2];
 
 %Create the Network
 network = generateNetwork(networkStructure);

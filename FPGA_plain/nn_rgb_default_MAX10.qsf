@@ -19,8 +19,11 @@ set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Lite Edition"
 set_global_assignment -name NUM_PARALLEL_PROCESSORS 8
 set_global_assignment -name INTERNAL_FLASH_UPDATE_MODE "SINGLE IMAGE WITH ERAM"
+set_global_assignment -name VHDL_FILE Generated/Blob_Detect.vhd
 set_global_assignment -name VHDL_FILE Generated/Camera_Capture.vhd
 set_global_assignment -name VHDL_FILE Generated/Camera_Capture_SDRAM.vhd
+set_global_assignment -name VHDL_FILE Generated/Draw_Squares.vhd
+set_global_assignment -name VHDL_FILE Generated/Gaussian_Filter.vhd
 set_global_assignment -name VHDL_FILE Generated/HDMI_Out.vhd
 set_global_assignment -name VHDL_FILE Generated/I2C_Master_Interface.vhd
 set_global_assignment -name VHDL_FILE Generated/Image_Data_Package.vhd

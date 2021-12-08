@@ -40,8 +40,10 @@ Main
 
     --Camera and HDMI----------------------------------------------------------------------------------------
 
-    Output_Stream <= NN_Stream;
+    --Output_Stream <= NN_Stream;
+    --Output_Stream <= Gaussian_Filter_oStream;
     --Output_Stream <= Camera_Stream;
+    Output_Stream <= Draw_Squares_oStream;
 
 --GENERATED COMPONENTS------------------------------------------------------------------------------------------
 
@@ -96,6 +98,72 @@ Main
         b_out     => NN_Stream.B,
     );
     
+    SIGNAL Gaussian_Filter_oStream     : rgb_stream;
+    NewComponent Gaussian_Filter
+    (
+        Filter_Area => 4,
+        Color_Depth => 1,
+        Gaussian    => false,
+        HSV_Mode    => true,
+        CLK_Edge    => true,
+
+        iStream     => NN_Stream,
+        oStream     => Gaussian_Filter_oStream,
+    );
+    
+    SIGNAL Blob_Detect_Blob_Busy       : STD_LOGIC := '0';
+    SIGNAL Blob_Detect_Blobs           : NATURAL   range 0 to 32;
+    SIGNAL Blob_Detect_Blob_Addr       : NATURAL   range 0 to 32-1;
+    SIGNAL Blob_Detect_Blob_X0         : NATURAL   range 0 to Image_Width-1;
+    SIGNAL Blob_Detect_Blob_X1         : NATURAL   range 0 to Image_Width-1;
+    SIGNAL Blob_Detect_Blob_Y0         : NATURAL   range 0 to Image_Height-1;
+    SIGNAL Blob_Detect_Blob_Y1         : NATURAL   range 0 to Image_Height-1;
+    NewComponent Blob_Detect
+    (
+        Blob_Number     => 32,
+        Blob_Buffer     => 8,
+        Edge_Reg_Size   => 3,
+        Min_Blob_Width  => 20,
+        Min_Blob_Height => 20,
+        Max_Blob_Width  => Image_Width,
+        Max_Blob_Height => Image_Height,
+        Upscale_Mult    => 1,
+        Upscale_Start   => 0,
+
+        New_Pixel       => Gaussian_Filter_oStream.New_Pixel,
+        Pixel_In        => Gaussian_Filter_oStream.R(7),
+        Column          => Gaussian_Filter_oStream.Column,
+        Row             => Gaussian_Filter_oStream.Row,
+        Blob_Busy       => Blob_Detect_Blob_Busy,
+        Blobs           => Blob_Detect_Blobs,
+        Blob_Addr       => Blob_Detect_Blob_Addr,
+        Blob_X0         => Blob_Detect_Blob_X0,
+        Blob_X1         => Blob_Detect_Blob_X1,
+        Blob_Y0         => Blob_Detect_Blob_Y0,
+        Blob_Y1         => Blob_Detect_Blob_Y1,
+    );
+    
+    SIGNAL Blob_Detect_Blobs2           : NATURAL   range 0 to 32;
+    Blob_Detect_Blobs2 <= Blob_Detect_Blobs-1 when Blob_Detect_Blobs > 0 else 0;
+    
+    SIGNAL Draw_Squares_oStream           : rgb_stream;
+    NewComponent Draw_Squares
+    (
+        Max_Square_Number => 32,
+        Width             => 4,
+        Color             => x"FF0000",
+
+        Squares           => Blob_Detect_Blobs2,
+        Square_Addr       => Blob_Detect_Blob_Addr,
+        Square_X0         => Blob_Detect_Blob_X0,
+        Square_X1         => Blob_Detect_Blob_X1,
+        Square_Y0         => Blob_Detect_Blob_Y0,
+        Square_Y1         => Blob_Detect_Blob_Y1,
+        iStream           => Camera_Stream,
+        --iStream           => Gaussian_Filter_oStream,
+        oStream           => Draw_Squares_oStream,
+    );
+    
     --Output image with HDMI-------------------------------------------------------------
 
     SIGNAL Output_Stream : rgb_stream;
@@ -109,7 +177,7 @@ Main
     {
         NewComponent Camera_Capture_SDRAM
         (
-            CLK_Edge    => false,
+            CLK_Edge    => true,
 
             iStream     => Output_Stream,
             
