@@ -43,12 +43,11 @@ fprintf('Starting Script \n')
 
 %=============== Constants Definition =================
 
-epochs = 600;   %Number of epochs you want to train the network
+epochs = 400;   %Number of epochs you want to train the network
 alpha = 0.00003; %Learning rate for the training process
 
 width=1000; %Width of the picture you are working with
 height=750; %Heigth of the picture you are working with
-
 
 color2=[128;128;128];   %Output color for the category "color_2"
 color1=[255;255;255];   %Output color for the category "color_1"
@@ -60,11 +59,12 @@ rand ("seed", 123456);
 %=============== Prepare Input Data =================
 fprintf('Reading and Preparing Training Data \n')
 
-
 %Picture you want to use for training
 inputPicture = imread('train.png');
 %Image with the labels corresponding to your inputPicture
 labelPicture = imread('label.png');
+%Picture as test
+testPicture = imread('test.jpg');
 
 %Uncomment the following lines if you want to see your loaded pictures before training
 % imshow(inputPicture);
@@ -74,6 +74,7 @@ labelPicture = imread('label.png');
 
 %Prepare the data for the training
 inputPicture = cast(inputPicture,'double'); %Need to be casted from uint to double
+testPicture = cast(testPicture,'double');
 
 %Create a matrix with the dimensions of the picture for the later label
 %vector
@@ -100,6 +101,7 @@ labels(:,:,2)=temp;
 %Reshape the pictures to tables for the training process
 labels = reshape(labels,[],2);   % Two columns (because of two output neurons)
 inputPicture = reshape(inputPicture,[],3); %Three columns (because three neurons in the input layer)
+testPicture = reshape(testPicture,[],3);
 
 %Print out debugging statistics
 numCategoryOne=(sum(labels(:,1)==0.99)*100)/(width*height);
@@ -113,6 +115,7 @@ fprintf(' - Background: %2.2f %%\n',100-numCategoryOne-numCategoryTwo);
 % Only for input values between [-4;4] the sigmoid function shows significant
 % differences in the output
 inputPicture = inputPicture/255;
+testPicture = testPicture/255;
 
 %=============== Generate Network =================
 fprintf('Generate Network \n')

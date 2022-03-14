@@ -18,7 +18,7 @@
 
 fprintf('Starting Script\n')
 
-load NN_RGB_3_Categories_config.mat %Load .mat file
+load NN_RGB_2_Categories_config.mat %Load .mat file
 
 
 %-----------Convert to Fixed Point --------------------------

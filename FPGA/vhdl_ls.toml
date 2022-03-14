@@ -1,0 +1,66 @@
+# auto-generated
+[Libraries]
+work.files = [
+	'Generated/AR0430_Camera.vhd',
+	'Generated/Camera_Capture_SDRAM.vhd',
+	'Generated/Color_Correction_Filter.vhd',
+	'Generated/HDMI_Out.vhd',
+	'Generated/I2C_Master_Interface.vhd',
+	'Generated/Image_Data_Package.vhd',
+	'Generated/Neural_Net.vhd',
+	'Generated/OnSemi_Cam_Config.vhd',
+	'Generated/UART_Interface.vhd',
+	'Generated/USB_SDRAM_Interface.vhd',
+	'Libraries/USB/USB_SDRAM_PLL.vhd',
+	'Generated/VS_SDRAM_Interface.vhd'
+	'Libraries/SDRAM_HDMI/VS_SDRAM_PLL.vhd',
+	'control.vhd',
+	'neuron.vhd',
+	'nn_rgb.vhd',
+	'sigmoid_IP.vhd',
+	'sim_nn_rgb.vhd',
+	'Generated/AR0430_Camera.vhd',
+	'Generated/Camera_Capture_SDRAM.vhd',
+	'Generated/Color_Correction_Filter.vhd',
+	'Generated/HDMI_Out.vhd',
+	'Generated/I2C_Master_Interface.vhd',
+	'Generated/Image_Data_Package.vhd',
+	'Generated/Neural_Net.vhd',
+	'Generated/OnSemi_Cam_Config.vhd',
+	'Generated/UART_Interface.vhd',
+	'Generated/USB_SDRAM_Interface.vhd',
+	'Generated/VS_SDRAM_Interface.vhd'
+]
+[libraries.work]
+files = [
+	'Generated/AR0430_Camera.vhd',
+	'Generated/Camera_Capture_SDRAM.vhd',
+	'Generated/Color_Correction_Filter.vhd',
+	'Generated/HDMI_Out.vhd',
+	'Generated/I2C_Master_Interface.vhd',
+	'Generated/Image_Data_Package.vhd',
+	'Generated/Neural_Net.vhd',
+	'Generated/OnSemi_Cam_Config.vhd',
+	'Generated/UART_Interface.vhd',
+	'Generated/USB_SDRAM_Interface.vhd',
+	'Libraries/USB/USB_SDRAM_PLL.vhd',
+	'Generated/VS_SDRAM_Interface.vhd'
+	'Libraries/SDRAM_HDMI/VS_SDRAM_PLL.vhd',
+	'control.vhd',
+	'neuron.vhd',
+	'nn_rgb.vhd',
+	'sigmoid_IP.vhd',
+	'sim_nn_rgb.vhd',
+	'Generated/AR0430_Camera.vhd',
+	'Generated/Camera_Capture_SDRAM.vhd',
+	'Generated/Color_Correction_Filter.vhd',
+	'Generated/HDMI_Out.vhd',
+	'Generated/I2C_Master_Interface.vhd',
+	'Generated/Image_Data_Package.vhd',
+	'Generated/Neural_Net.vhd',
+	'Generated/OnSemi_Cam_Config.vhd',
+	'Generated/UART_Interface.vhd',
+	'Generated/USB_SDRAM_Interface.vhd',
+	'Generated/VS_SDRAM_Interface.vhd'
+]
+# auto-generated-end

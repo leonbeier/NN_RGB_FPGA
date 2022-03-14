@@ -1,0 +1,47 @@
+﻿<Project>
+  <ItemGroup>
+    <File Include="Generated/AR0430_Camera.vhd" />
+    <File Include="Generated/Camera_Capture_SDRAM.vhd" />
+    <File Include="Generated/Color_Correction_Filter.vhd" />
+    <File Include="Generated/HDMI_Out.vhd" />
+    <File Include="Generated/I2C_Master_Interface.vhd" />
+    <File Include="Generated/Image_Data_Package.vhd" />
+    <File Include="Generated/Neural_Net.vhd" />
+    <File Include="Generated/OnSemi_Cam_Config.vhd" />
+    <File Include="Generated/UART_Interface.vhd" />
+    <File Include="Generated/USB_SDRAM_Interface.vhd" />
+    <File Include="Generated/VS_SDRAM_Interface.vhd" />
+    <File Include="Libraries/CSI_Camera/ALTDDIO_IN.qsys.vhdp" />
+    <File Include="Libraries/CSI_Camera/ALTSYNCRAM.qsys.vhdp" />
+    <File Include="Libraries/CSI_Camera/AR0430_Camera.vhdp" />
+    <File Include="Libraries/CSI_Camera/AR0430_Camera_Config.vhdp" />
+    <File Include="Libraries/HDMI/DVI_OUT.v" />
+    <File Include="Libraries/HDMI/HDMI_Out.vhdp" />
+    <File Include="Libraries/HDMI/TMDS_ENCODE.v" />
+    <File Include="Libraries/SDRAM_HDMI/Camera_Capture_SDRAM.vhdp" />
+    <File Include="Libraries/SDRAM_HDMI/SDRAM_Controller.qsys" />
+    <File Include="Libraries/SDRAM_HDMI/VS_SDRAM_Interface.vhdp" />
+    <File Include="Libraries/SDRAM_HDMI/VS_SDRAM_PLL.qip" />
+    <File Include="Libraries/SDRAM_HDMI/VS_SDRAM_PLL.vhd" />
+    <File Include="Libraries/USB/USB_SDRAM_Interface.vhdp" />
+    <File Include="Libraries/USB/USB_SDRAM_PLL.qip" />
+    <File Include="Libraries/USB/USB_SDRAM_PLL.vhd" />
+    <File Include="Libraries/Color_Correction.vhdp" />
+    <File Include="Libraries/I2C.vhdp" />
+    <File Include="Libraries/OnSemi_Image_Data.vhdp" />
+    <File Include="Libraries/UART.vhdp" />
+    <File Include="Neural_Net.vhdp" />
+    <File Include="control.vhd" />
+    <File Include="neuron.vhd" />
+    <File Include="nn_rgb.vhd" />
+    <File Include="sigmoid_12_Bit.mif" />
+    <File Include="sigmoid_IP.qip" />
+    <File Include="sigmoid_IP.vhd" />
+    <File Include="sim_nn_rgb.vhd" />
+  </ItemGroup>
+  <PropertyGroup>
+    <SelectedFpga>Core MAX10</SelectedFpga>
+    <IoVoltage>3.3V</IoVoltage>
+    <CruviHs Extension="CameraExtension" Position="0" />
+  </PropertyGroup>
+</Project>

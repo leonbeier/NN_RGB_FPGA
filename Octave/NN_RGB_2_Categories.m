@@ -39,11 +39,11 @@ fprintf('Starting Script \n')
 
 %=============== Constants Definition =================
 
-epochs = 400;   %Number of epochs you want to train the network
-alpha = 0.00001;%Learning rate for the training process
+epochs = 600;   %Number of epochs you want to train the network
+alpha = 0.00003;%Learning rate for the training process
 
-width=1280; %Width of the picture you are working with
-height=720; %Heigth of the picture you are working with
+width=1152; %Width of the picture you are working with
+height=864; %Heigth of the picture you are working with
 
 color1=[255;255;255];   %Output color for the category "color"
 color0=[0;0;0];         %Output color for the category "other"
@@ -56,9 +56,9 @@ fprintf('Reading and Preparing Training Data \n')
 
 
 %Picture you want to use for training
-inputPicture = imread('training.png');
+inputPicture = imread('test.jpg');
 %Image with the labels corresponding to your inputPicture
-labelPicture = imread('labels_color.png');
+labelPicture = imread('label.jpg');
 
 %Uncomment the following lines if you want to see your loaded pictures before training
 % imshow(inputPicture);
@@ -80,7 +80,7 @@ labels = zeros(height,width) + 0.01;
 %Where the value is 255 insert 0.99 in den labels matrix
 %0.99 because the sigmoid function never reaches 1
 %If you read a black and white picture in octave the white pixel have a value of 1
-labels(labelPicture(:,:,2)>0)=0.99;
+labels(labelPicture(:,:,1)>0)=0.99;
 
 %Reshape the pictures to tables for the training process
 labels = reshape(labels,[],1);   % One column (because of one output neuron)
