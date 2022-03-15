@@ -151,7 +151,7 @@ Main
         sdram_ras_n => Capture_sdram_ras_n,
         sdram_we_n  => Capture_sdram_we_n,
     );
-    /*
+    
     NewComponent VS_SDRAM_Interface
     (
         Read_Column    => Capture_Read_Column,
@@ -194,9 +194,9 @@ Main
         HDMI_CLK   => HDMI_CLK,
         HDMI_HPD   => HDMI_HPD,
     );
-    */
-    SIGNAL VS_PCLK   : STD_LOGIC;
     
+    SIGNAL VS_PCLK   : STD_LOGIC;
+    /*
     NewComponent USB_SDRAM_Interface
     (
         Baud_Rate   => 12000000,
@@ -211,4 +211,5 @@ Main
         TX          => TX,
         RX          => RX,
     );
+    */
 }
